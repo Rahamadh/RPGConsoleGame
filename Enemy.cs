@@ -6,7 +6,8 @@ namespace vilao
     {
         public Orc()
     {
-     nome = "orc";   
+     nome = "orc";
+     this.armaequipada = new Machado();   
     }
     }
 }

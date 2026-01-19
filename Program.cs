@@ -18,7 +18,7 @@ public class Program
         heroi.definirRaca(new Anão());
         heroi.definirClasse(new Guerreiro());
         heroi.armaequipada = arma[0];
-        orc.armaequipada = arma[1];
+
         
         Console.WriteLine($"{heroi.classe.ClasseName}, {heroi.race.raceName} {heroi.race.habilidade} {heroi.armaequipada.nome} ");
         mostrarStatus(heroi);
@@ -26,6 +26,8 @@ public class Program
 while(true)
 {
           Console.WriteLine($"{heroi.vida}, {orc.vida}");
+
+          combatente.defesaBase(heroi);
      
         Console.WriteLine("Escolha sua ação A - atacar, D defender - S habilidade especial");
 
@@ -46,10 +48,22 @@ while(true)
                         combatente.acaoOfensiva(heroi,orc);
                         break;
                         case "D":
-                        combatente.acaoOfensiva(heroi,orc);
+                        combatente.acaoDefensiva(heroi);
                         break;
                         case "S":
-                        combatente.acaoOfensiva(heroi,orc);
+                        if( heroi.classe is Guerreiro guerreiro1)
+                            {
+                                guerreiro1.acaoEspecial(heroi,orc);
+                            }
+                        else if( heroi.classe is Mago mago1)
+                            {
+                                mago1.acaoEspecial(heroi,orc);
+                            }
+                        else if( heroi.classe is Ladino ladino1)
+                            {
+                                ladino1.acaoEspecial(heroi,orc);
+                            }
+                          
                         break;
                         default:
                         Console.WriteLine("Comando invalido");

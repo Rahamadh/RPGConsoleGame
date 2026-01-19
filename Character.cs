@@ -13,6 +13,9 @@ namespace Character
        public int ataque = 5;
        public int defesa = 10;
 
+       public bool escudo = false;
+
+
        public Race race;
        public Classe classe;
 

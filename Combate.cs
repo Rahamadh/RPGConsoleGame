@@ -42,4 +42,17 @@ public class  Combate
     
 
     }
+
+    public virtual void acaoDefensiva(Personagem alvo)
+    {
+          alvo.escudo = true;
+          alvo.defesa += 5;
+          
+          
+    }
+    public virtual void defesaBase (Personagem alvo)
+    {
+         alvo.escudo = false;
+    }
+    
 }

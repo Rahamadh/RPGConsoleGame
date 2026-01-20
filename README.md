@@ -47,7 +47,7 @@ Para rodar o jogo na sua máquina, você precisa ter o [.NET SDK](https://dotnet
 
 ```bash
 # Clone este repositório
-git clone [https://github.com/SEU_USUARIO/NOME_DO_REPO.git](https://github.com/SEU_USUARIO/NOME_DO_REPO.git)
+git clone https://github.com/Rahamadh/RPGConsoleGame.git
 
 # Acesse a pasta do projeto no terminal/cmd
 cd NOME_DO_REPO

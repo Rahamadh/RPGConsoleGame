@@ -79,13 +79,9 @@ namespace Monstro
 
         public Dragao()
     {
-     nome = "Smaug O Dourado";
+     nome = "Smaug, O Dourado";
      vida += 50;
-<<<<<<< HEAD
-     mana -=40;
-=======
      mana +=40;
->>>>>>> 04d6705 (randomizaçao das açoes do inimigo)
      ataque += 10;
      defesa += 5;
         

@@ -20,10 +20,7 @@ namespace Character
 
        public Race race;
        public Classe classe;
-
        public Item armaequipada;
-
-       
 
        public void definirRaca (Race race)
         {

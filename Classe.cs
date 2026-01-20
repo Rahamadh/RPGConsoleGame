@@ -2,21 +2,24 @@ using System.Data;
 using Character;
 using CalculoBatalha;
 
+
+ public interface IacaoClasse 
+   { 
+    void acaoClasse (Personagem atacante,Personagem alvo);
+    }
+   
+   
     public abstract class Classe
     {
         public string ClasseName = "";
 
-        
         public abstract void statusClasse (Personagem personagem);
-        public abstract void acaoEspecial (Personagem atacante,Personagem alvo);
        
-
-     
-
+       
     }
 
     //_______________________GUERREIRO________________________
-    public class Guerreiro : Classe
+    public class Guerreiro : Classe, IacaoClasse
 {   public override void statusClasse (Personagem personagem)
     {
         personagem.vida += 20;
@@ -29,15 +32,17 @@ using CalculoBatalha;
        {
         ClasseName = "Guerreiro";
        }
-    public override void acaoEspecial(Personagem atacante, Personagem alvo)
+       public void acaoClasse (Personagem atacante, Personagem alvo)
     {
-        if(atacante.mana <= 0)
+        int dadoVida = Combate.d10();
+
+        if(alvo.mana >= 10)
         {
-            Console.WriteLine("Mana insuficiente");
+            alvo.vida += dadoVida;
         }
         else
-        {   atacante.vida += 20;
-            Console.WriteLine("O guerreiro recupera o folego restaurando vida");
+        {
+            Console.WriteLine("Mana insuficiente");
         }
     }
 }
@@ -59,7 +64,7 @@ public class Mago : Classe
         personagem.ataqueMagico += 10;
 
     }
-     public override void acaoEspecial(Personagem atacante, Personagem alvo)
+     public void acaoClasse (Personagem atacante, Personagem alvo)
     {
 
         int conjuracao = Combate.d20() + atacante.ataqueMagico;
@@ -102,7 +107,7 @@ public class Ladino : Classe
         personagem.defesa +=5;
 
     }
-        public override void acaoEspecial(Personagem atacante, Personagem alvo)
+        public void acaoClasse (Personagem atacante, Personagem alvo)
         {
             int ataqueArdiloso = Combate.d6();
             int danoBase = (atacante.armaequipada != null) ? atacante.armaequipada.rolarDano() :1; 

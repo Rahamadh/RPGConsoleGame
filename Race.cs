@@ -2,10 +2,7 @@ using System;
 using Character;
 public abstract class Race
     {
-
   public abstract void StatusRaciais(Personagem personagem);
-
-
        public string habilidade = "";
        public string raceName = "";
     }

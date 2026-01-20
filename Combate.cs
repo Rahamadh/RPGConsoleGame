@@ -64,6 +64,7 @@ public class  Combate
             Console.WriteLine($"{alvo.nome} baixou seu escudo");
         }
     }
+    
       
     
 }

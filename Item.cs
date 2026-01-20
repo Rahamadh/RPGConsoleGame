@@ -1,8 +1,9 @@
 using System.Xml;
 using Character;
+using CalculoBatalha;
 
 public abstract class Item
-{   public Combate dano;
+{   
     public string nome = "";
      public abstract int rolarDano ();
 }

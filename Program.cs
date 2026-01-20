@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Character;
-using vilao;
+using Monstro;
+using CalculoBatalha;
 
 namespace RPG
 {

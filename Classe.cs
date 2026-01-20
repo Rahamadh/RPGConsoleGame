@@ -1,14 +1,12 @@
 using System.Data;
 using Character;
+using CalculoBatalha;
 
     public abstract class Classe
     {
         public string ClasseName = "";
 
-        public Combate combate;
         
-    
-
         public abstract void statusClasse (Personagem personagem);
         public abstract void acaoEspecial (Personagem atacante,Personagem alvo);
        

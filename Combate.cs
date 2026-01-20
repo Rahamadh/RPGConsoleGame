@@ -1,19 +1,18 @@
 using System;
 using RPG;
 using Character;
-using vilao;
+using Monstro;
+using System.Runtime.InteropServices.Marshalling;
 
+namespace CalculoBatalha
+{
 public class  Combate
 { 
-    public Personagem personagem;
+    
 
-    public Classe classe;
 
    public static Random random = new Random();
-  public static int d20 () => random.Next(1,21);
-    
-       
-    
+     public static int d20 () => random.Next(1,21);
      public static int d12 () => random.Next(1,13);
     
      public static int d10 () => random.Next(1,11);
@@ -46,9 +45,9 @@ public class  Combate
 
     public virtual void acaoDefensiva(Personagem alvo)
     {
-          alvo.escudo = false;
-          if (alvo.escudo)
-        {
+          
+          if (!alvo.escudo)
+        {  alvo.escudo = true;
            alvo.defesa += 5; 
            Console.WriteLine($"{alvo.nome} assumiu uma posição defensiva");
         }
@@ -58,12 +57,15 @@ public class  Combate
     }
     public virtual void defesaBase (Personagem alvo)
     {
-         alvo.escudo = true;
+         
          if(alvo.escudo)
-        {
+        {   alvo.escudo = false;
             alvo.defesa -= 5;
             Console.WriteLine($"{alvo.nome} baixou seu escudo");
         }
     }
+      
     
+}
+
 }

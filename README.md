@@ -50,7 +50,11 @@ Para rodar o jogo na sua máquina, você precisa ter o [.NET SDK](https://dotnet
 git clone https://github.com/Rahamadh/RPGConsoleGame.git
 
 # Acesse a pasta do projeto no terminal/cmd
+<<<<<<< HEAD
 cd RPGConsoleGame
+=======
+cd NOME_DO_REPO
+>>>>>>> 04d6705 (randomizaçao das açoes do inimigo)
 
 # Execute o projeto
 dotnet run

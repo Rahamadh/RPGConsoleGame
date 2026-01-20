@@ -14,7 +14,8 @@ public class Program
     {
         Personagem heroi = new Personagem();
         Personagem[] enemy = {new Orc(), new Dragao()};
-        Personagem enemyAtual = enemy[0];
+        Personagem enemyAtual = enemy[1];
+
 
         Console.WriteLine(enemyAtual);
 
@@ -62,8 +63,12 @@ public class Program
         heroi.armaequipada = armaEscolhida;
 
         mostrarStatus(heroi);
+
+        Console.WriteLine("Escolha o nome do seu personagem: ");
+        heroi.nome = Console.ReadLine();
+
  
-        Console.WriteLine($" Bem vindo{heroi.nome}, um terrivél {enemyAtual.nome} esbarra do seu caminho");
+        Console.WriteLine($" Bem vindo {heroi.nome}, um terrível {enemyAtual.nome} esbarra em seu caminho");
 
 
 
@@ -71,7 +76,7 @@ public class Program
 
 while(true)
 {
-          Console.WriteLine($"Nome: {heroi.nome}= Vida{heroi.vida} Mana {heroi.mana} || Inimigo {enemyAtual.nome} = {enemyAtual.vida}");
+          Console.WriteLine($"Nome: {heroi.nome} || Vida = {heroi.vida} Mana = {heroi.mana} || Inimigo {enemyAtual.nome} || Vida = {enemyAtual.vida} Mana = {enemyAtual.mana}");
 
           combatente.defesaBase(heroi);
      
@@ -119,19 +124,19 @@ while(true)
                     }
 
 //_____________________________//____________________________________//
-Console.WriteLine("Declare a ação Inimiga DEBUG");
-entrada = Console.ReadLine();
- string acaoInimiga = entrada;
+Console.WriteLine("Ação Inimiga: ");
+
+int acaoInimiga = Combate.d4();
 
                         switch (acaoInimiga)
                     {
-                        case "1":
+                        case 1:
                         combatente.acaoOfensiva(enemyAtual,heroi);
                         break;
-                        case "2":
+                        case 2:
                         combatente.acaoDefensiva(enemyAtual);
                         break;
-                        case "3":
+                        case 3:
                         if(enemyAtual is IacaoMonstro monstro)
                             {
                             monstro.acaoMonstro(enemyAtual, heroi);

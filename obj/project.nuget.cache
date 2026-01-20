@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "Z/bpbL4F5n0=",
+  "dgSpecHash": "QORWxqkdvlY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ext.fasilva\\Documents\\Desenvolvimento\\C#\\ExerciciosCS\\Polimorfismo\\Polimorfismo.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\Polimorfismo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sophia Helena\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.11\\microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
+    "C:\\Users\\Sophia Helena\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.11\\microsoft.windowsdesktop.app.ref.9.0.11.nupkg.sha512",
+    "C:\\Users\\Sophia Helena\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.11\\microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512",
+    "C:\\Users\\Sophia Helena\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.11\\microsoft.netcore.app.host.win-x64.9.0.11.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\Sophia Helena\\Downloads\\pasta\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\Polimorfismo.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\Polimorfismo.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

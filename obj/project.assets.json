@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ext.fasilva\\.nuget\\packages\\": {}
+    "C:\\Users\\Sophia Helena\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ext.fasilva\\Documents\\Desenvolvimento\\C#\\ExerciciosCS\\Polimorfismo\\Polimorfismo.csproj",
+      "projectUniqueName": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\Polimorfismo.csproj",
       "projectName": "Polimorfismo",
-      "projectPath": "C:\\Users\\ext.fasilva\\Documents\\Desenvolvimento\\C#\\ExerciciosCS\\Polimorfismo\\Polimorfismo.csproj",
-      "packagesPath": "C:\\Users\\ext.fasilva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ext.fasilva\\Documents\\Desenvolvimento\\C#\\ExerciciosCS\\Polimorfismo\\obj\\",
+      "projectPath": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\Polimorfismo.csproj",
+      "packagesPath": "C:\\Users\\Sophia Helena\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sophia Helena\\Downloads\\pasta\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ext.fasilva\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Sophia Helena\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -44,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -60,13 +60,39 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Sophia Helena\\Downloads\\pasta\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }

@@ -32,39 +32,20 @@ public class Program
             {
                 Console.WriteLine($"[{i+1}] {race[i].raceName}");
             }
-        int Escolha;
-        while (true) 
         
-        { if (!int.TryParse(Console.ReadLine(), out Escolha) || Escolha <0 || Escolha > 4)  
-          {
-        Console.WriteLine("Escolha Invalida, tente novamente");
-          }
-          else
-                {
-                    break;
-                }    
-        }
-        Race racaEscolhida = race[Escolha-1];
+    
+        
+        Race racaEscolhida = race[validarEscolha(race.Length)-1];
         heroi.definirRaca(racaEscolhida);
 
-        Escolha = 0;
+        
                   //ESCOLHA DA CLASSE
       for ( int i = 0;i< classe.Length; i++)
             {
                 Console.WriteLine($"[{i+1}] {classe[i].ClasseName}");
             }
-  while (true) 
-        
-        { if (!int.TryParse(Console.ReadLine(), out Escolha) || Escolha <0 || Escolha > 4)  
-          {
-        Console.WriteLine("Escolha Invalida, tente novamente");
-          }
-          else
-                {
-                    break;
-                }    
-        }
-        Classe classeEscolhida = classe[Escolha-1];
+    
+        Classe classeEscolhida = classe[validarEscolha(race.Length) -1];
         heroi.definirClasse(classeEscolhida);
 
 
@@ -75,20 +56,9 @@ public class Program
             {
                 Console.WriteLine($"{i+1} {arma[i].nome}");
             }
-            Escolha = 0;
-         while (true) 
         
-        { if (!int.TryParse(Console.ReadLine(), out Escolha) || Escolha <0 || Escolha > 4)  
-          {
-        Console.WriteLine("Escolha Invalida, tente novamente");
-          }
-          else
-                {
-                    break;
-                }    
-        }
         
-        Item armaEscolhida = arma[Escolha -1];
+        Item armaEscolhida = arma[validarEscolha(race.Length) -1];
         heroi.armaequipada = armaEscolhida;
 
         mostrarStatus(heroi);
@@ -127,7 +97,7 @@ while(true)
                         combatente.acaoDefensiva(heroi);
                         break;
                         case "S":
-                        if( heroi is IacaoClasse heroi1)
+                        if( heroi.classe is IacaoClasse heroi1)
                             {
                                 heroi1.acaoClasse(heroi,enemyAtual);
                             }  
@@ -206,7 +176,20 @@ entrada = Console.ReadLine();
         {
             Console.WriteLine($" vida Orc {e.vida}");
         }
-
+private static int validarEscolha ( int max)
+        { int escolha;
+        while (true) 
+        
+        { if (!int.TryParse(Console.ReadLine(), out escolha) || escolha <0 || escolha > max)  
+          {
+        Console.WriteLine("Escolha Invalida, tente novamente");
+          }
+          else
+                {
+                    return escolha;
+                }    
+        }
+        }
             
     
 }

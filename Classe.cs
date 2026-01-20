@@ -49,7 +49,7 @@ using CalculoBatalha;
 
 
 //___________MAGO_______________
-public class Mago : Classe
+public class Mago : Classe, IacaoClasse
 {
      public Mago()
     {
@@ -93,7 +93,7 @@ public class Mago : Classe
 }
 
 //________________________LADINO_____________________________________
-public class Ladino : Classe
+public class Ladino : Classe, IacaoClasse
 {
      public Ladino()
     {

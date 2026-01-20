@@ -12,3 +12,4 @@ C:\Users\ext.fasilva\Documents\Desenvolvimento\C#\ExerciciosCS\Polimorfismo\obj\
 C:\Users\ext.fasilva\Documents\Desenvolvimento\C#\ExerciciosCS\Polimorfismo\obj\Debug\net9.0\Polimorfismo.pdb
 C:\Users\ext.fasilva\Documents\Desenvolvimento\C#\ExerciciosCS\Polimorfismo\obj\Debug\net9.0\Polimorfismo.genruntimeconfig.cache
 C:\Users\ext.fasilva\Documents\Desenvolvimento\C#\ExerciciosCS\Polimorfismo\obj\Debug\net9.0\ref\Polimorfismo.dll
+C:\Users\ext.fasilva\Documents\Desenvolvimento\C#\ExerciciosCS\Polimorfismo\obj\Debug\net9.0\Polimorfismo.sourcelink.json

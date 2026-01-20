@@ -11,6 +11,8 @@ namespace Character
        public int vida = 100;
        public int mana = 50;
        public int ataque = 5;
+
+       public int ataqueMagico = 0;
        public int defesa = 10;
 
        public bool escudo = false;
@@ -20,6 +22,8 @@ namespace Character
        public Classe classe;
 
        public Item armaequipada;
+
+       
 
        public void definirRaca (Race race)
         {
@@ -35,6 +39,7 @@ namespace Character
             this.classe = classe;
             
         }
+        
       
     
     }

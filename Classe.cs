@@ -6,7 +6,7 @@ using Character;
         public string ClasseName = "";
 
         public Combate combate;
-        public Personagem Personagem;
+        
     
 
         public abstract void statusClasse (Personagem personagem);
@@ -58,12 +58,13 @@ public class Mago : Classe
         personagem.mana += 20;
         personagem.ataque +=2;
         personagem.defesa +=2;
+        personagem.ataqueMagico += 10;
 
     }
      public override void acaoEspecial(Personagem atacante, Personagem alvo)
     {
 
-        int conjuracao = Combate.d20() + atacante.ataque;
+        int conjuracao = Combate.d20() + atacante.ataqueMagico;
         int danoMagico = Combate.d6() *4;
         
       if(atacante.mana <= 0)
@@ -75,8 +76,9 @@ public class Mago : Classe
              if(conjuracao > alvo.defesa)
             {
                 atacante.mana -=10;
-                Console.WriteLine("Bola De Fogo!!!!");
+                
               alvo.vida -= danoMagico;
+              Console.WriteLine($"{atacante.nome} Conjura uma Bola De Fogo!!! e causa {danoMagico} de dano de fogo");
             }
               else
             {
@@ -105,12 +107,14 @@ public class Ladino : Classe
         public override void acaoEspecial(Personagem atacante, Personagem alvo)
         {
             int ataqueArdiloso = Combate.d6();
-            int danoArdiloso = atacante.armaequipada.rolarDano() *2;
+            int danoBase = (atacante.armaequipada != null) ? atacante.armaequipada.rolarDano() :1; 
+            int danoArdiloso =  danoBase*2;
 
             if ( ataqueArdiloso >= 5)
         {
-            Console.WriteLine("Ataque fatal");
+            Console.WriteLine($"{atacante.nome} ataca o {alvo.nome} desprevenido");
             alvo.vida -= danoArdiloso;
+            Console.WriteLine($"O {alvo.nome} sofre {danoArdiloso} de dano fisico");
         }
         else
         {

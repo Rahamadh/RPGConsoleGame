@@ -30,13 +30,14 @@ public class  Combate
  public virtual void acaoOfensiva(Personagem atacante, Personagem alvo)
     {
         int rolagemAtaque = d20() + atacante.ataque;
-        int rolagemDano = atacante.ataque + atacante.armaequipada.rolarDano();
+        int danoBAse = (atacante.armaequipada != null)? atacante.armaequipada.rolarDano(): 1; 
+        int rolagemDano = danoBAse;
 
         if(rolagemAtaque > alvo.defesa)
         {
             Console.WriteLine($"O ataque acertou com {rolagemAtaque} pontos");
 
-            Console.WriteLine($"O dano causado foi de {rolagemDano}");
+            Console.WriteLine($"O dano causado foi de {rolagemDano} de dano fisico");
             alvo.vida -= rolagemDano;
         }
     
@@ -45,14 +46,24 @@ public class  Combate
 
     public virtual void acaoDefensiva(Personagem alvo)
     {
-          alvo.escudo = true;
-          alvo.defesa += 5;
+          alvo.escudo = false;
+          if (alvo.escudo)
+        {
+           alvo.defesa += 5; 
+           Console.WriteLine($"{alvo.nome} assumiu uma posição defensiva");
+        }
+          
           
           
     }
     public virtual void defesaBase (Personagem alvo)
     {
-         alvo.escudo = false;
+         alvo.escudo = true;
+         if(alvo.escudo)
+        {
+            alvo.defesa -= 5;
+            Console.WriteLine($"{alvo.nome} baixou seu escudo");
+        }
     }
     
 }

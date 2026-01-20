@@ -11,7 +11,8 @@ public class Program
     static void Main (string []args)
     {
         Personagem heroi = new Personagem();
-        Orc orc = new Orc();
+        Personagem orc = new Orc();
+
         Combate combatente = new Combate();
         Item [] arma = { new Espada(),new Machado(),new MarteloGuerra() };
         heroi.nome = "Torvin, escudo de carvalho";
@@ -20,12 +21,12 @@ public class Program
         heroi.armaequipada = arma[0];
 
         
-        Console.WriteLine($"{heroi.classe.ClasseName}, {heroi.race.raceName} {heroi.race.habilidade} {heroi.armaequipada.nome} ");
-        mostrarStatus(heroi);
+        Console.WriteLine($" Bem vindo{heroi.nome}, um terrivél {orc.nome} esbarra do seu caminho");
+        
 
 while(true)
 {
-          Console.WriteLine($"{heroi.vida}, {orc.vida}");
+          Console.WriteLine($"Nome: {heroi.nome}= Vida{heroi.vida} Mana {heroi.mana} || Inimigo {orc.nome} = {orc.vida}");
 
           combatente.defesaBase(heroi);
      
@@ -82,13 +83,24 @@ while(true)
                     }
 
 //_____________________________//____________________________________//
-int acaoInimiga = 1;
+Console.WriteLine("Declare a ação Inimiga DEBUG");
+entrada = Console.ReadLine();
+ string acaoInimiga = entrada;
 
                         switch (acaoInimiga)
                     {
-                        case 1:
+                        case "1":
                         combatente.acaoOfensiva(orc,heroi);
                         break;
+                        case "2":
+                        combatente.acaoDefensiva(orc);
+                        break;
+                        case "3":
+                        if(orc is Orc orc1)
+                            {
+                                orc1.acaoMonstro(orc, heroi);
+                            }
+                            break;
                         default:
                         Console.WriteLine("Comando invalido");
                         break;
@@ -120,6 +132,11 @@ int acaoInimiga = 1;
             Console.WriteLine($"Mana {s.mana}");
             Console.WriteLine($"Ataque {s.ataque}");
             Console.WriteLine($"Defesa {s.defesa}");
+        }
+
+        public static void mostrarstatusEnemy (Personagem e)
+        {
+            Console.WriteLine($" vida Orc {e.vida}");
         }
 
             

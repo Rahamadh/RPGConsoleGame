@@ -8,19 +8,18 @@ namespace Character
     public class Personagem 
     {
       public  string nome = "";
-       public int vida = 100;
+       public int vida = 50;
        public int mana = 50;
-       public int ataque = 5;
-
-       public int ataqueMagico = 0;
+       public int corpoAcorpo = 1;
+       public int pontaria = 1;
+       public int magia = 0;
        public int defesa = 10;
 
        public bool escudo = false;
 
-
        public Race race;
        public Classe classe;
-       public Item armaequipada;
+       public Arma armaequipada;
 
        public void definirRaca (Race race)
         {

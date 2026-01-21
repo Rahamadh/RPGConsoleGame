@@ -17,7 +17,9 @@ public abstract class Race
     {
         personagem.vida -= 10 ;
         personagem.mana += 10;
-        personagem.ataque += 3 ;
+        personagem.corpoAcorpo += 1 ;
+        personagem.pontaria += 3;
+        personagem.magia += 2;
         personagem.defesa += 2;
     }
         
@@ -34,7 +36,9 @@ public class Anão : Race
     {
         personagem.vida += 10;
         personagem.mana -= 10;
-        personagem.ataque += 2;
+        personagem.corpoAcorpo += 2 ;
+        personagem.pontaria -= 2;
+        personagem.magia += 0;
         personagem.defesa += 5;
     }
     
@@ -48,10 +52,12 @@ public class Humano : Race
     
     public override void StatusRaciais (Personagem personagem)
     {
-        personagem.vida += 5;
-        personagem.mana += 5;
-        personagem.ataque += 1;
-        personagem.defesa += 1;
+        personagem.vida += 2;
+        personagem.mana += 2;
+        personagem.corpoAcorpo += 2;
+        personagem.pontaria +=2;
+        personagem.defesa += 2;
+        personagem.magia =+2;
     }
    
 }
@@ -64,10 +70,12 @@ public class Halfling : Race
     
     public override void StatusRaciais (Personagem personagem)
     {
-        personagem.vida -= 20 ;
-        personagem.mana += 10 ;
-        personagem.ataque += 5;
-        personagem.defesa += 5 ;
+        personagem.vida -= 20;
+        personagem.mana += 20;
+        personagem.corpoAcorpo += 5;
+        personagem.pontaria +=5;
+        personagem.defesa += 5;
+        personagem.magia =+5;
     }
     
 }

@@ -18,8 +18,8 @@ namespace Monstro
        public void acaoMonstro (Personagem atacante, Personagem alvo)
         {
             
-            int investidaBrutal = Combate.d4();
-            int danoBrutal = Combate.d10() *2; 
+            int investidaBrutal = Combate.RolarDados(1,4);
+            int danoBrutal = Combate.RolarDados(2,10); 
 
             if (atacante.mana >= 10)
             {
@@ -47,7 +47,7 @@ namespace Monstro
      nome = "orc";
      vida += 20;
      mana -=20;
-     ataque += 5;
+     corpoAcorpo += 5;
         
      this.armaequipada = new Machado();   
     }
@@ -60,8 +60,8 @@ namespace Monstro
     {   
         public void acaoMonstro (Personagem atacante, Personagem alvo)
         {
-            int sofroFogo = Combate.d6();
-            int danoFogo = Combate.d6() *10;
+            int soproFogo = Combate.RolarDados(1,6);
+            int danoFogo = Combate.RolarDados(10,6) ;
 
             if (atacante.mana <= 0)
             {
@@ -69,7 +69,7 @@ namespace Monstro
             }
             else
             {
-                if(sofroFogo >= 4)
+                if(soproFogo >= 4)
                 {
                     Console.WriteLine($"{atacante.nome} exele uma rajada flamejante causado {danoFogo} de dano de fogo");
                     alvo.vida -= danoFogo;
@@ -82,7 +82,7 @@ namespace Monstro
      nome = "Smaug, O Dourado";
      vida += 50;
      mana +=40;
-     ataque += 10;
+     corpoAcorpo += 10;
      defesa += 5;
         
      this.armaequipada = new ArmaNatural();

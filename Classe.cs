@@ -24,7 +24,7 @@ using CalculoBatalha;
     {
         personagem.vida += 20;
         personagem.mana -= 20;
-        personagem.ataque +=1;
+        personagem.corpoAcorpo +=1;
         personagem.defesa +=1;
 
     }
@@ -34,7 +34,7 @@ using CalculoBatalha;
        }
        public void acaoClasse (Personagem atacante, Personagem alvo)
     {
-        int dadoVida = Combate.d10();
+        int dadoVida = Combate.RolarDados(2,10);
 
         if(alvo.mana >= 10)
         {
@@ -59,16 +59,16 @@ public class Mago : Classe, IacaoClasse
     {
         personagem.vida += 0;
         personagem.mana += 20;
-        personagem.ataque +=2;
-        personagem.defesa +=2;
-        personagem.ataqueMagico += 10;
+        personagem.corpoAcorpo -=2;
+        personagem.defesa +=1;
+        personagem.magia += 10;
 
     }
      public void acaoClasse (Personagem atacante, Personagem alvo)
     {
 
-        int conjuracao = Combate.d20() + atacante.ataqueMagico;
-        int danoMagico = Combate.d6() *4;
+        int conjuracao = Combate.RolarDados(1,20) + atacante.magia;
+        int danoMagico = Combate.RolarDados(6,6);
         
       if(atacante.mana <= 0)
         {
@@ -103,15 +103,15 @@ public class Ladino : Classe, IacaoClasse
     {
         personagem.vida += 0 ;
         personagem.mana -= 0;
-        personagem.ataque +=7;
+        personagem.corpoAcorpo +=7;
         personagem.defesa +=5;
 
     }
         public void acaoClasse (Personagem atacante, Personagem alvo)
         {
-            int ataqueArdiloso = Combate.d6();
+            int ataqueArdiloso = Combate.RolarDados(1,6);
             int danoBase = (atacante.armaequipada != null) ? atacante.armaequipada.rolarDano() :1; 
-            int danoArdiloso =  danoBase*2;
+            int danoArdiloso =  danoBase + Combate.RolarDados(2,6);
 
             if ( ataqueArdiloso >= 5)
         {

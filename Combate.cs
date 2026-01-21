@@ -6,39 +6,66 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace CalculoBatalha
 {
+    
+    
 public class  Combate
-{ 
+{   
+   
+    public static Random random = new Random();
+    public static int RolarDados (int quantidade, int faces)
+    {
+        int total = 0;
+
+
+        for(int i = 0; i< quantidade; i++)
+            {
+                total += random.Next(1, faces +1);
+            }
+            return total;
+        
+    }
     
 
 
-   public static Random random = new Random();
-     public static int d20 () => random.Next(1,21);
-     public static int d12 () => random.Next(1,13);
-    
-     public static int d10 () => random.Next(1,11);
-
-     public static int d8 () =>  random.Next(1,9);
-    
-     public static int d6 () => random.Next(1,7);
-    
-     public static int d4 () => random.Next(1,5);
+     
 
 
    
 
  public virtual void acaoOfensiva(Personagem atacante, Personagem alvo)
-    {
-        int rolagemAtaque = d20() + atacante.ataque;
+    {   int rolagemAtaque = 0;
+        if( atacante.armaequipada.propiedades() == "Corpo-A-Corpo")
+            {
+                 rolagemAtaque = RolarDados(1,20) + atacante.corpoAcorpo;
+            }
+            else if (atacante.armaequipada.propiedades() == "À Distância")
+            {
+                 rolagemAtaque = RolarDados(1,20) + atacante.pontaria;
+            }
+            else if (atacante.armaequipada.propiedades() == "Magica")
+            {
+                 rolagemAtaque = RolarDados(1,20) + atacante.magia;
+            }
+            else
+            {
+                rolagemAtaque = RolarDados(1,20);
+            }
+        
+        
         int danoBAse = (atacante.armaequipada != null)? atacante.armaequipada.rolarDano(): 1; 
         int rolagemDano = danoBAse;
 
         if(rolagemAtaque > alvo.defesa)
         {
-            Console.WriteLine($"O ataque acertou com {rolagemAtaque} pontos");
+            Console.WriteLine($"O {atacante.nome} acertou o atacaque com {atacante.armaequipada.nome} rolando {rolagemAtaque} pontos");
 
             Console.WriteLine($"O dano causado foi de {rolagemDano} de dano fisico");
             alvo.vida -= rolagemDano;
         }
+        else
+            {
+                Console.WriteLine($"{atacante.nome} errou o ataque com {rolagemAtaque}");
+            }
     
 
     }
@@ -64,7 +91,7 @@ public class  Combate
             Console.WriteLine($"{alvo.nome} baixou seu escudo");
         }
     }
-    
+
       
     
 }

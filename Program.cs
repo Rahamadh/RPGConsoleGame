@@ -5,6 +5,8 @@ using Monstro;
 using CalculoBatalha;
 using System.Threading.Tasks.Dataflow;
 
+
+
 namespace RPG
 {
     
@@ -12,41 +14,55 @@ public class Program
 {
     static void Main (string []args)
     {
+  
+        
+      
+      // Jogador
         Personagem heroi = new Personagem();
-        Personagem[] enemy = {new Orc(), new Dragao()};
-        Personagem enemyAtual = enemy[1];
+        
+        
 
-
-        Console.WriteLine(enemyAtual);
-
-        Combate combatente = new Combate();
-        Item [] arma = { new Espada(),new Machado(),new MarteloGuerra() };
+        
+       
         Race [] race = {new Anão(), new Elfo(), new Humano(), new Halfling()};
         Classe [] classe = {new Guerreiro(), new Mago(), new Ladino()};
 
-        Console.WriteLine("Vamos Montar seu heroi...primeiro, esoclha sua Raça");
+        //Inimigo 
+        Personagem[] enemy = {new Orc(), new Dragao()};
+        
+        int sortearInimigo = Combate.RolarDados(1,2);
+        Personagem enemyAtual = enemy[sortearInimigo -1];
+        
 
+        //Armas & Itemns
+         Arma [] arma = { new Espada(),new Machado(),new MarteloGuerra(), new Arco(), new Varinha() };
 
+         //Combate
+         Combate combatente = new Combate();
+
+ 
+        
+        //Inicio da construção de personagem
+        Console.WriteLine("Vamos Iniciar sua aventura, Primeiro, diga o nome para seu heroi");
+        heroi.nome = Console.ReadLine();
+        
                      //ESCOLHA DA RACA
-
+        Console.WriteLine("Agora, escolha sua Raça");
         for ( int i = 0;i< race.Length; i++)
             {
                 Console.WriteLine($"[{i+1}] {race[i].raceName}");
             }
-        
-    
-        
         Race racaEscolhida = race[validarEscolha(race.Length)-1];
         heroi.definirRaca(racaEscolhida);
 
-        
+
                   //ESCOLHA DA CLASSE
       for ( int i = 0;i< classe.Length; i++)
             {
                 Console.WriteLine($"[{i+1}] {classe[i].ClasseName}");
             }
     
-        Classe classeEscolhida = classe[validarEscolha(race.Length) -1];
+        Classe classeEscolhida = classe[validarEscolha(classe.Length) -1];
         heroi.definirClasse(classeEscolhida);
 
 
@@ -59,30 +75,36 @@ public class Program
             }
         
         
-        Item armaEscolhida = arma[validarEscolha(race.Length) -1];
+        Arma armaEscolhida = arma[validarEscolha(arma.Length) -1];
         heroi.armaequipada = armaEscolhida;
 
         mostrarStatus(heroi);
 
-        Console.WriteLine("Escolha o nome do seu personagem: ");
-        heroi.nome = Console.ReadLine();
+      
 
  
-        Console.WriteLine($" Bem vindo {heroi.nome}, um terrível {enemyAtual.nome} esbarra em seu caminho");
+ Console.WriteLine($" Bem vindo {heroi.nome}");
+ 
+ Thread.Sleep(1000);
+
+ Console.WriteLine("Você esta caminhando pelas terras grandes planides de vendell...");
+ Console.WriteLine($"Até quando um terrivel {enemyAtual.nome} suerge na sua frente");
+ Console.WriteLine("Prepare-se para a luta");
+
+ Thread.Sleep(1000);
 
 
 
 // Combate por turno.
-
+ 
 while(true)
 {
           Console.WriteLine($"Nome: {heroi.nome} || Vida = {heroi.vida} Mana = {heroi.mana} || Inimigo {enemyAtual.nome} || Vida = {enemyAtual.vida} Mana = {enemyAtual.mana}");
 
           combatente.defesaBase(heroi);
      
-        Console.WriteLine("Escolha sua ação A - atacar, D defender - S habilidade especial");
-
-        string entrada = Console.ReadLine().ToUpper();
+MostrarMenuAcoes();
+string entrada = Console.ReadLine();
 
         string acao = entrada;
 
@@ -95,13 +117,13 @@ while(true)
                 {
                     switch (acao)
                     {
-                        case "A":
+                        case "1":
                         combatente.acaoOfensiva(heroi,enemyAtual);
                         break;
-                        case "D":
+                        case "2":
                         combatente.acaoDefensiva(heroi);
                         break;
-                        case "S":
+                        case "3":
                         if( heroi.classe is IacaoClasse heroi1)
                             {
                                 heroi1.acaoClasse(heroi,enemyAtual);
@@ -122,11 +144,11 @@ while(true)
                     {
                         Console.WriteLine("O inimigo ainda luta");
                     }
-
+Thread.Sleep(1500);
 //_____________________________//____________________________________//
 Console.WriteLine("Ação Inimiga: ");
 
-int acaoInimiga = Combate.d4();
+int acaoInimiga = Combate.RolarDados(1,3);
 
                         switch (acaoInimiga)
                     {
@@ -172,9 +194,11 @@ int acaoInimiga = Combate.d4();
         {   
             Console.WriteLine($"Vida {s.vida}");
             Console.WriteLine($"Mana {s.mana}");
-            Console.WriteLine($"Ataque {s.ataque}");
+            Console.WriteLine($"Ataque {s.corpoAcorpo}");
             Console.WriteLine($"Defesa {s.defesa}");
-            Console.WriteLine($"{s.armaequipada.nome}");
+            Console.WriteLine($"Pontaria{s.pontaria}");
+            Console.WriteLine($"Magia {s.magia}");
+            Console.WriteLine($"Arma{s.armaequipada.nome}");
         }
 
         public static void mostrarstatusEnemy (Personagem e)
@@ -182,7 +206,8 @@ int acaoInimiga = Combate.d4();
             Console.WriteLine($" vida Orc {e.vida}");
         }
 private static int validarEscolha ( int max)
-        { int escolha;
+        { 
+        int escolha;
         while (true) 
         
         { if (!int.TryParse(Console.ReadLine(), out escolha) || escolha <0 || escolha > max)  
@@ -195,6 +220,29 @@ private static int validarEscolha ( int max)
                 }    
         }
         }
+       // public static int TestarDados () => Combate.RolarDados(10,10);
+
+       //Menu de ações
+
+       static void MostrarMenuAcoes()
+{
+    Console.Clear();
+    Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    Console.WriteLine("┃          AÇÃO               ┃");
+    Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+    Console.WriteLine("┃ 1. Atacar                   ┃");
+    Console.WriteLine("┃ 2. Defender                 ┃");
+    Console.WriteLine("┃ 3. Habilidade               ┃");
+    Console.WriteLine("┃ 4. Fugir                    ┃");
+    Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    Console.Write("Escolha: ");
+}
+
+
+
+        
+            
+        
             
     
 }
